@@ -440,7 +440,7 @@ class URLExtract(CacheFile):
             return False
 
         host_tld = '.'+host_parts[-1]
-        if host_tld != tld:
+        if host_tld.lower() != tld.lower():
             return False
 
         top = host_parts[-2]
