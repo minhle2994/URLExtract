@@ -93,7 +93,7 @@ class URLExtract(CacheFile):
         Initialize after tld characters
         """
         after_tld_chars = set(string.whitespace)
-        after_tld_chars |= {'/', '\"', '\'', '<', '>', '?', ':', '.', ','}
+        after_tld_chars |= {'/', '\"', '\'', '<', '>', '?', ':', '.', ',', '!', '*'}
         # get left enclosure characters
         _, right_enclosure = zip(*self._enclosure)
         # add right enclosure characters to be valid after TLD
