@@ -338,6 +338,14 @@ class URLExtract(CacheFile):
                         right_ok = False
 
         complete_url = text[start_pos:end_pos + 1].lstrip('/')
+        
+        start_pos = 0
+        while not (complete_url[start_pos].isalpha() or complete_url[start_pos].isdigit()):
+            start_pos += 1
+            if start_pos == len(complete_url) - 1:
+                break
+        complete_url = complete_url[start_pos:]
+        
         # remove last character from url
         # when it is allowed character right after TLD (e.g. dot, comma)
         temp_tlds = {tld + c for c in self._after_tld_chars}
